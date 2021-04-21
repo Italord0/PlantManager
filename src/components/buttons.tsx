@@ -5,8 +5,8 @@ import { Ionicons } from '@expo/vector-icons'
 
 interface ButtonProps extends TouchableOpacityProps {
     title: string;
-    leftIcon : string;
-    rightIcon : string;
+    leftIcon : any,
+    rightIcon : any,
     leftIconSize : number;
     rightIconSize : number;
 }
