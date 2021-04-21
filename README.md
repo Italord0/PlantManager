@@ -1,4 +1,4 @@
-Aplicativo PlantManager (Rocket Seat NLW#5)
+Aplicativo PlantManager (Rocketseat NLW#5)
 
 ## :rocket: Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
