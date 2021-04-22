@@ -26,7 +26,7 @@ export default function App() {
           style={UserIdentificationStyle.container}
           behavior = {Platform.OS === 'ios'? 'padding' : 'height'}>
 
-            <BackButton style = {UserIdentificationStyle.backButton} />
+            <BackButton/>
           
               <View style= {UserIdentificationStyle.content} >
 

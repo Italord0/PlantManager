@@ -1,10 +1,11 @@
-import { StyleSheet , Dimensions } from 'react-native'
+import { StyleSheet , Dimensions, Platform, StatusBar } from 'react-native'
 import colors from './colors';
 import fonts from './fonts';
 
 
 const WelcomeStyle = StyleSheet.create({
     container: {
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -14,7 +15,6 @@ const WelcomeStyle = StyleSheet.create({
         fontSize: 32,
         textAlign: 'center',
         color: colors.heading,
-        marginTop: 40,
         marginStart: 32,
         marginEnd: 32
     },

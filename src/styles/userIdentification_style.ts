@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native'
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Platform } from 'react-native'
 import colors from './colors';
 import fonts from './fonts';
 
@@ -42,7 +43,7 @@ const UserIdentificationStyle = StyleSheet.create({
         fontFamily : fonts.heading
     },
     buttonConfirmar : {
-        marginTop : 32,
+        marginTop : 30,
         backgroundColor: colors.green,
         justifyContent: 'center',
         alignItems: 'center',
@@ -50,10 +51,6 @@ const UserIdentificationStyle = StyleSheet.create({
         marginBottom: 10,
         height: 56,
         width: '60%'
-    },
-    backButton : {
-        marginTop : 30,
-        marginStart : 30
     }
 })
 

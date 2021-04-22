@@ -37,7 +37,10 @@ function SolidButton({ title, ...rest }: ButtonProps) {
 function BackButton({ ...rest }: ButtonProps) {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity activeOpacity={0.7} {...rest} onPress = {() => {navigation.goBack()} } >
+        <TouchableOpacity style = {{
+            marginTop : 20,
+            marginStart : 20
+        }}  activeOpacity={0.7} {...rest} onPress = {() => {navigation.goBack()} } >
             <Ionicons size = {35} name= "arrow-back" />
         </TouchableOpacity>
     )

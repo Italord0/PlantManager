@@ -7,6 +7,7 @@ import AppLoading from 'expo-app-loading';
 import Orientation from 'react-native-orientation';
 
 import Routes from './src/routes/'
+import {  View, Platform , StatusBar } from 'react-native';
 
 export default function App() {
 

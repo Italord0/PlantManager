@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, SafeAreaView , Image} from 'react-native';
+import { Text, SafeAreaView , Image, View} from 'react-native';
 import { WelcomeStyle } from '../styles/welcome_style' 
 import { RoundButton } from '../components/buttons'
 import { useNavigation } from '@react-navigation/native';
@@ -24,7 +24,6 @@ export default function App() {
         <Text style={WelcomeStyle.subtitle}>Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você sempre que precisar!</Text>
 
         <RoundButton leftIcon = "arrow-forward" leftIconSize = {24} style={WelcomeStyle.roundButton} onPress = {handleNavigation} />
-
       </SafeAreaView>
     );
   }
