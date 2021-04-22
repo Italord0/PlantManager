@@ -1,7 +1,9 @@
 Aplicativo PlantManager (Rocketseat NLW#5)
 
+<p float="left">
 <img src="https://user-images.githubusercontent.com/32901063/115681230-b83ea800-a32a-11eb-905b-185c9227d739.png" width="200">
-
+<img src="https://user-images.githubusercontent.com/32901063/115681922-5d598080-a32b-11eb-87f5-dd66544d2ea7.png" width="200">
+</p>
 
 ## :rocket: Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
