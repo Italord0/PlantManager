@@ -1,19 +1,20 @@
 import React from 'react';
 import { TouchableOpacity, Text, TouchableOpacityProps } from 'react-native';
-import { WelcomeStyle } from '../styles/wlcome_style';
+import { WelcomeStyle } from '../styles/welcome_style';
 import { Ionicons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
 
 interface ButtonProps extends TouchableOpacityProps {
-    title: string;
-    leftIcon : any,
-    rightIcon : any,
-    leftIconSize : number;
-    rightIconSize : number;
+    title?: string;
+    leftIcon? : any,
+    rightIcon? : any,
+    leftIconSize? : number;
+    rightIconSize? : number;
 }
 
 function RoundButton({ title , leftIcon , rightIcon , leftIconSize, rightIconSize , ...rest }: ButtonProps) {
     return (
-        <TouchableOpacity style={WelcomeStyle.roundButton} activeOpacity={0.7} {...rest}>
+        <TouchableOpacity activeOpacity={0.7} {...rest}>
             <Text style={WelcomeStyle.buttonText}>
                 <Ionicons size = { leftIconSize } name = { leftIcon } />
                 {title}
@@ -22,6 +23,7 @@ function RoundButton({ title , leftIcon , rightIcon , leftIconSize, rightIconSiz
         </TouchableOpacity>
     )
 }
+
 function SolidButton({ title, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={WelcomeStyle.button} activeOpacity={0.7} {...rest}>
@@ -32,4 +34,13 @@ function SolidButton({ title, ...rest }: ButtonProps) {
     )
 }
 
-export { RoundButton, SolidButton }
+function BackButton({ ...rest }: ButtonProps) {
+    const navigation = useNavigation();
+    return (
+        <TouchableOpacity activeOpacity={0.7} {...rest} onPress = {() => {navigation.goBack()} } >
+            <Ionicons size = {35} name= "arrow-back" />
+        </TouchableOpacity>
+    )
+}
+
+export { RoundButton, SolidButton , BackButton }

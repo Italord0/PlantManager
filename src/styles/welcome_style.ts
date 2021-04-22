@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet , Dimensions } from 'react-native'
 import colors from './colors';
+import fonts from './fonts';
+
 
 const WelcomeStyle = StyleSheet.create({
     container: {
@@ -8,15 +10,16 @@ const WelcomeStyle = StyleSheet.create({
         justifyContent: 'space-between',
     },
     title: {
+        fontFamily : fonts.heading,
         fontSize: 32,
-        fontWeight: 'bold',
         textAlign: 'center',
         color: colors.heading,
-        marginTop: 36,
+        marginTop: 40,
         marginStart: 32,
         marginEnd: 32
     },
     subtitle: {
+        fontFamily : fonts.text,
         textAlign: 'center',
         fontSize: 18,
         paddingHorizontal: 20,
@@ -42,8 +45,7 @@ const WelcomeStyle = StyleSheet.create({
         width: 56
     },
     image: {
-        width: 292,
-        height: 284,
+        height: Dimensions.get('window').width * 0.6 
     },
     buttonText: {
         justifyContent: 'center',
