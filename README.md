@@ -6,6 +6,10 @@
 <img src="https://user-images.githubusercontent.com/32901063/115682399-cf31ca00-a32b-11eb-9ada-202579039d77.png" width="250">
 </p>
 
+<p float="left">
+<img src="https://user-images.githubusercontent.com/32901063/115831935-a15e8b00-a3e8-11eb-8e5e-e3aef5b5d2e7.png" width="250">
+</p>
+
 ## :rocket: Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native](https://reactnative.dev/)
