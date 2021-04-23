@@ -13,6 +13,7 @@
 ## :rocket: Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## 🌱 Projeto
 Projeto para auxiliar na regagem de plantas
