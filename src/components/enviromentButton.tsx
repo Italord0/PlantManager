@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { RectButton , RectButtonProps } from 'react-native-gesture-handler';
-import { EnviromentButtonStyle } from '../styles/enviromentButton_style';
+import { Style } from '../styles/components/enviromentButton/style';
 
 interface EnviromentButtonProps extends RectButtonProps {
     title?: string;
@@ -10,8 +10,8 @@ interface EnviromentButtonProps extends RectButtonProps {
 
 function EnviromentButton({ title , active = false, ...rest }: EnviromentButtonProps) {
     return (
-        <RectButton style = {[EnviromentButtonStyle.container , active && EnviromentButtonStyle.containerActive ]} {... rest } >
-            <Text style = {[EnviromentButtonStyle.text , active && EnviromentButtonStyle.textActive ]}>{title}</Text>
+        <RectButton style = {[Style.container , active && Style.containerActive ]} {... rest } >
+            <Text style = {[Style.text , active && Style.textActive ]}>{title}</Text>
         </RectButton>
     )
 }

@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
-import colors from './colors';
-import fonts from './fonts';
+import colors from '../../colors';
+import fonts from '../../fonts';
 
-const UserConfirmationStyle = StyleSheet.create({
+const Style = StyleSheet.create({
     container: {
         flex: 1
     },
@@ -62,4 +62,4 @@ const UserConfirmationStyle = StyleSheet.create({
     }
 })
 
-export { UserConfirmationStyle }
+export { Style }

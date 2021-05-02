@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView , Image , TouchableWithoutFeedback , View, TextInput, KeyboardAvoidingView, Platform, Keyboard} from 'react-native';
-import { UserIdentificationStyle } from '../styles/userIdentification_style' 
+import { Text, SafeAreaView , Image , TouchableWithoutFeedback , View, TextInput, KeyboardAvoidingView, Platform, Keyboard, Alert} from 'react-native';
+import { Style } from '../styles/views/userIdentification/style' 
 import { RoundButton , BackButton } from '../components/buttons'
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
 
-  const [name, setName] = useState<String>();
+  const [name, setName] = useState<string>();
 
   const navigation = useNavigation()
 
@@ -15,38 +15,43 @@ export default function App() {
     setName(value);
   }
 
-  function handleSubmit() {
-    navigation.navigate("UserConfirmation")
+  async function handleSubmit() {
+    if(!name){
+      return Alert.alert('Diga-me como você se chama')
+    }else {
+      await AsyncStorage.setItem('@plantmanager:userName', name)
+      navigation.navigate("UserConfirmation")    
+    }
   }
 
     return (
-      <SafeAreaView style={UserIdentificationStyle.container}>
+      <SafeAreaView style={Style.container}>
         <TouchableWithoutFeedback onPress= {Keyboard.dismiss}>
           <KeyboardAvoidingView 
-          style={UserIdentificationStyle.container}
+          style={Style.container}
           behavior = {Platform.OS === 'ios'? 'padding' : 'height'}>
 
             <BackButton/>
           
-              <View style= {UserIdentificationStyle.content} >
+              <View style= {Style.content} >
 
-                <View style= {UserIdentificationStyle.form} >
+                <View style= {Style.form} >
                 
                   <View>
-                    <Text style = {UserIdentificationStyle.emoji}> {name == 'Golira' ? '🦍' : '😄'} </Text>
+                    <Text style = {Style.emoji}>😄</Text>
                   </View>
 
                   <View>
-                    <Text style = {UserIdentificationStyle.title}> Como podemos chamar você? </Text>
+                    <Text style = {Style.title}> Como podemos chamar você? </Text>
                   </View>
 
-                  <View style = {UserIdentificationStyle.inputBox}>
+                  <View style = {Style.inputBox}>
 
-                    <TextInput onChangeText = {handleInputChange} placeholder = "Digite seu nome" style = {UserIdentificationStyle.input} />
+                    <TextInput onChangeText = {handleInputChange} placeholder = "Digite seu nome" style = {Style.input} />
 
                   </View>
 
-                <RoundButton title = "CONFIRMAR" style={UserIdentificationStyle.buttonConfirmar} onPress = { handleSubmit } />
+                <RoundButton title = "CONFIRMAR" style={Style.buttonConfirmar} onPress = { handleSubmit } />
 
               </View>
 

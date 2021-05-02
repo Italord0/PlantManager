@@ -1,9 +1,9 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native'
 import { color } from 'react-native-reanimated';
-import colors from './colors';
-import fonts from './fonts';
+import colors from '../../colors';
+import fonts from '../../fonts';
 
-const PlantCardPrimaryButtonStyle = StyleSheet.create({
+const Style = StyleSheet.create({
     container: {
         flex: 1,
         maxWidth: '45%',
@@ -22,4 +22,4 @@ const PlantCardPrimaryButtonStyle = StyleSheet.create({
     }
 })
 
-export { PlantCardPrimaryButtonStyle }
+export { Style }

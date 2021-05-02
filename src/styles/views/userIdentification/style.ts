@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Platform } from 'react-native'
-import colors from './colors';
-import fonts from './fonts';
+import { StyleSheet  } from 'react-native'
+import colors from '../../colors';
+import fonts from '../../fonts';
 
-const UserIdentificationStyle = StyleSheet.create({
+const Style = StyleSheet.create({
     container: {
         flex: 1
     },
@@ -54,4 +53,4 @@ const UserIdentificationStyle = StyleSheet.create({
     }
 })
 
-export { UserIdentificationStyle }
+export { Style }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions, Text } from 'react-native';
 import { RectButton , RectButtonProps } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg';
-import { PlantCardPrimaryButtonStyle } from '../styles/plantCardPrimaryButton_style';
+import { Style } from '../styles/components/plantCardButton/style';
 
 interface PlantCardPrimaryButtonProps extends RectButtonProps {
     data: {
@@ -13,9 +13,9 @@ interface PlantCardPrimaryButtonProps extends RectButtonProps {
 
 function PlantCardPrimaryButton({ data , ...rest }: PlantCardPrimaryButtonProps) {
     return (
-        <RectButton style = {PlantCardPrimaryButtonStyle.container}  {... rest } >
+        <RectButton style = {Style.container}  {... rest } >
             <SvgFromUri uri = {data.photo} height = {Dimensions.get('window').height * 0.1}/>
-            <Text style = {PlantCardPrimaryButtonStyle.text}>{ data.name }</Text>
+            <Text style = {Style.text}>{ data.name }</Text>
         </RectButton>
     )
 }

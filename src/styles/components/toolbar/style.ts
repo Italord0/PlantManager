@@ -1,8 +1,8 @@
 import { Dimensions, StyleSheet } from 'react-native'
-import colors from './colors';
-import fonts from './fonts';
+import colors from '../../colors';
+import fonts from '../../fonts';
 
-const ToolbarStyle = StyleSheet.create({
+const Style = StyleSheet.create({
     container: {
         paddingTop : 20,
         width: '100%',
@@ -28,4 +28,4 @@ const ToolbarStyle = StyleSheet.create({
     }
 })
 
-export { ToolbarStyle }
+export { Style }

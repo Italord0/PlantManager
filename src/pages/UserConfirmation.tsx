@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView , Image , TouchableOpacity, View, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
-import { UserConfirmationStyle } from '../styles/userConfirmation_style' 
+import { Style } from '../styles/views/userConfirmation/style' 
 import { RoundButton } from '../components/buttons'
 import { useNavigation } from '@react-navigation/native';
 
@@ -13,24 +13,24 @@ export default function App() {
   }
 
     return (
-      <SafeAreaView style={UserConfirmationStyle.container}>
-          <View style= {UserConfirmationStyle.content} >
+      <SafeAreaView style={Style.container}>
+          <View style= {Style.content} >
 
-              <View style= {UserConfirmationStyle.form} >
+              <View style= {Style.form} >
                 
                 <View>
-                <Text style = {UserConfirmationStyle.emoji}> 😁 </Text>
+                <Text style = {Style.emoji}> 😁 </Text>
                 </View>
 
                 <View>
-                <Text style = {UserConfirmationStyle.title}>Tudo certo!</Text>
+                <Text style = {Style.title}>Tudo certo!</Text>
                 </View>
 
                 <View>
-                <Text style = {UserConfirmationStyle.subtitle}>Agora vamos começar a cuidar das suas plantinhas com muito cuidado.</Text>
+                <Text style = {Style.subtitle}>Agora vamos começar a cuidar das suas plantinhas com muito cuidado.</Text>
                 </View>
 
-                <RoundButton title = "COMEÇAR" style={UserConfirmationStyle.buttonConfirmar} onPress = {handleConfirm} />
+                <RoundButton title = "COMEÇAR" style={Style.buttonConfirmar} onPress = {handleConfirm} />
 
               </View>
 

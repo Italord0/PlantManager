@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Text, SafeAreaView , FlatList , View, ActivityIndicator} from 'react-native';
-import { PlantSelectStyle } from '../styles/plantSelect_style' 
+import { Style } from '../styles/views/plantSelect/style' 
 import { EnviromentButton } from '../components/enviromentButton'
 import colors from '../styles/colors'
 import { ToolBar } from '../components/toolbar'
 import { api } from '../services/api';
 import { PlantCardPrimaryButton } from '../components/plantCardPrimaryButton';
 import Skeleton from 'react-loading-skeleton';
+import { useNavigation } from '@react-navigation/native';
 
 interface EnviromentProps {
   key : string;
@@ -36,12 +37,16 @@ export default function App() {
     //selected state
     const [environmentSelected , setEnvironmentSelected] = useState('all');
 
+    //api loading state
     const [loadingEnviroments , setLoadingEnviroments] = useState(true);
     const [loadingPlants , setLoadingPlants] = useState(true);
 
+    //page state
     const [page , setPage] = useState(1);
     const [loadingMore , setLoadingMore] = useState(false)
     const [loadedAll , setLoadedAll] = useState(false)
+
+    const navigation = useNavigation()
 
     useEffect( () => {
       async function fetchEnviroment(){
@@ -105,15 +110,19 @@ export default function App() {
         console.log(error)
       }
     }
+
+    function handlePlant(plant : PlantProps){
+      navigation.navigate('PlantSave' , { plant } )
+    }
     
     return (
-      <SafeAreaView style={PlantSelectStyle.container}>
+      <SafeAreaView style={Style.container}>
 
-        <View style={PlantSelectStyle.content}>
+        <View style={Style.content}>
           <ToolBar userName="Italo"/>
 
-          <Text style={PlantSelectStyle.title} >Em qual ambiente</Text>
-          <Text style={PlantSelectStyle.subtitle} >você quer colocar sua planta?</Text>
+          <Text style={Style.title} >Em qual ambiente</Text>
+          <Text style={Style.subtitle} >você quer colocar sua planta?</Text>
 
         </View> 
 
@@ -125,7 +134,9 @@ export default function App() {
             )
         } else {
           return(
-          <FlatList data={environments} renderItem={
+          <FlatList data={environments}
+            keyExtractor = {(item) => String(item.key)}
+            renderItem={
              ( { item }) => (<EnviromentButton 
               title = {item.title} 
               active = {item.key === environmentSelected}
@@ -133,31 +144,33 @@ export default function App() {
               /> )
             }
             horizontal 
-            showsHorizontalScrollIndicator = {false} 
+            showsHorizontalScrollIndicator = {false}
+            contentContainerStyle={Style.enviromentList}
             
-            contentContainerStyle={PlantSelectStyle.enviromentList} />)
+            />)
           }})()}
         </View>
 
-        <View style = {PlantSelectStyle.plants}>
+        <View style = {Style.plants}>
         {(() => {
               if (loadingPlants == true){
                   return (
                     <ActivityIndicator color = {colors.green} />
                   )
               } else {
-                return (<FlatList data={filteredPlants} renderItem={
-                  ( { item }) => (<PlantCardPrimaryButton data = {item} />)
-                 }
-                 showsVerticalScrollIndicator = {false}            
-                 contentContainerStyle={PlantSelectStyle.plantList}
-                 numColumns = {2}
-                 onEndReachedThreshold={0.3}
-                 onEndReached = { () => handleFetchMore()}
-                 ListFooterComponent={
-                   loadingMore ? 
-                   <ActivityIndicator color={colors.green} /> : <></>}  
-                   />)
+                return (<FlatList 
+                  data={filteredPlants} 
+                  keyExtractor = {(item) => String(item.id)}
+                  renderItem={( { item }) => (<PlantCardPrimaryButton 
+                    data = {item}
+                    onPress = {() => handlePlant(item)}
+                    />)}
+                  showsVerticalScrollIndicator = {false}            
+                  contentContainerStyle={Style.plantList}
+                  numColumns = {2}
+                  onEndReachedThreshold={0.3}
+                  onEndReached = { () => handleFetchMore()}
+                  ListFooterComponent={loadingMore ? <ActivityIndicator color={colors.green} /> : <></>}/>)
               }
             })()}
         </View>

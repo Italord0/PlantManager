@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
-import colors from './colors';
-import fonts from './fonts';
+import colors from '../../colors';
+import fonts from '../../fonts';
 
-const EnviromentButtonStyle = StyleSheet.create({
+const Style = StyleSheet.create({
     container: {
         marginHorizontal : 5,
         backgroundColor: colors.shape,
@@ -25,4 +25,4 @@ const EnviromentButtonStyle = StyleSheet.create({
     }
 })
 
-export { EnviromentButtonStyle }
+export { Style }

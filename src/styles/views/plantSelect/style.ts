@@ -1,9 +1,8 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native'
-import { color } from 'react-native-reanimated';
-import colors from './colors';
-import fonts from './fonts';
+import colors from '../../colors';
+import fonts from '../../fonts';
 
-const PlantSelectStyle = StyleSheet.create({
+const Style = StyleSheet.create({
     container: {
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         flex: 1,
@@ -38,4 +37,4 @@ const PlantSelectStyle = StyleSheet.create({
     },
 })
 
-export { PlantSelectStyle }
+export { Style }

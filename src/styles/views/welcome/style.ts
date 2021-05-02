@@ -1,9 +1,9 @@
 import { StyleSheet , Dimensions, Platform, StatusBar } from 'react-native'
-import colors from './colors';
-import fonts from './fonts';
+import colors from '../../colors';
+import fonts from '../../fonts';
 
 
-const WelcomeStyle = StyleSheet.create({
+const Style = StyleSheet.create({
     container: {
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         flex: 1,
@@ -54,4 +54,4 @@ const WelcomeStyle = StyleSheet.create({
     }
 })
 
-export { WelcomeStyle }
+export { Style }
